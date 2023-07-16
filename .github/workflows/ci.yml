@@ -28,5 +28,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ github.actor }}/texlive-ja-devcontainer:latest
+          tags: ghcr.io/${{ github.actor }}/texlive-ja-devcontainer:latest
           context: ./image/
