@@ -1,0 +1,12 @@
+{
+  "name": "Latex Workshop Dev Container",
+  "image": "ghcr.io/so298/texlive-ja-devcontainer:latest",
+  "workspaceFolder": "/home/vscode/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": ["James-Yu.latex-workshop"]
+    }
+  },
+  "remoteUser": "vscode"
+}
