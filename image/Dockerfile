@@ -15,6 +15,12 @@ RUN apt-get update \
 
 RUN curl -sL https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/common-debian.sh | bash -
 
+# install latexindent
+RUN apt-get install -y --no-install-recommends \
+  libfile-homedir-perl \
+  libyaml-tiny-perl
+RUN tlmgr init-usertree && tlmgr install latexindent
+
 # change default shell
 RUN chsh -s /bin/zsh $USERNAME
 

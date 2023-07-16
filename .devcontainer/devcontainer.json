@@ -5,7 +5,10 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind,consistency=cached",
   "customizations": {
     "vscode": {
-      "extensions": ["James-Yu.latex-workshop"]
+      "extensions": ["James-Yu.latex-workshop"],
+      "settings": {
+        "latex-workshop.latexindent.path": "/usr/local/bin/texlive/latexindent"
+      }
     }
   },
   "remoteUser": "vscode"
