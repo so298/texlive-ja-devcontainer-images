@@ -19,12 +19,11 @@ jobs:
       matrix:
         include:
           - target: minimal
-            tags:
-              - "${{ vars.IMAGE_NAME }}:minimal"
+            tags: "${{ vars.IMAGE_NAME }}:minimal"
           - target: extra
-            tags:
-              - "${{ vars.IMAGE_NAME }}:extra"
-              - "${{ vars.IMAGE_NAME }}:latest"
+            tags: |
+              ${{ vars.IMAGE_NAME }}:extra
+              ${{ vars.IMAGE_NAME }}:latest
 
     steps:
       - uses: actions/checkout@v3
