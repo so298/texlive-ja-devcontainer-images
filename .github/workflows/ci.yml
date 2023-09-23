@@ -10,15 +10,6 @@ on:
       - "images/**"
       - ".github/workflows/ci.yml"
   workflow_dispatch:
-    inputs:
-      image_name:
-        description: "Image name"
-        required: false
-        default: "texlive-ja-devcontainer"
-      repo:
-        description: "Repository name"
-        required: false
-        default: "ghcr.io"
 
 jobs:
   build-and-push:
@@ -28,13 +19,11 @@ jobs:
       matrix:
         include:
           - target: minimal
-            tags:
-              - "${{ inputs.repo }}/${{ github.actor }}/${{ inputs.image_name }}:minimal"
+            tags: "${{ vars.IMAGE_NAME }}:minimal"
           - target: extra
-            tags:
-              - "${{ inputs.repo }}/${{ github.actor }}/${{ inputs.image_name }}:extra"
-              - "${{ inputs.repo }}/${{ github.actor }}/${{ inputs.image_name }}:latest"
-
+            tags: |
+              ${{ vars.IMAGE_NAME }}:extra
+              ${{ vars.IMAGE_NAME }}:latest
 
     steps:
       - uses: actions/checkout@v3
