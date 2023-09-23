@@ -2,18 +2,23 @@ name: Docker build and push
 
 on:
   schedule:
-    - cron: '0 0 1 * *'
+    - cron: "0 0 1 * *" # Update monthly
   push:
     branches:
       - main
     paths:
-      - 'images/**'
-      - '.github/workflows/ci.yml'
+      - "images/**"
+      - ".github/workflows/ci.yml"
   workflow_dispatch:
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        target: ["minimal", "extra"] # build targets
+
     steps:
       - uses: actions/checkout@v3
 
@@ -35,7 +40,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: ./images/${{ matrix.target }}
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/${{ github.actor }}/texlive-ja-devcontainer:latest
-          context: ./images/
+          tags: ghcr.io/${{ github.actor }}/${{ matrix.target }}/texlive-ja-devcontainer:latest
