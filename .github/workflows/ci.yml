@@ -43,4 +43,4 @@ jobs:
           context: ./images/${{ matrix.target }}
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/${{ github.actor }}/${{ matrix.target }}/texlive-ja-devcontainer:latest
+          tags: ghcr.io/${{ github.actor }}/texlive-ja-devcontainer/${{ matrix.target }}:latest
