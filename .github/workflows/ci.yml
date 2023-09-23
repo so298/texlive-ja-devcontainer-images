@@ -17,7 +17,13 @@ jobs:
 
     strategy:
       matrix:
-        target: ["minimal", "extra"] # build targets
+        include:
+          - target: minimal
+            tag: minimal
+          - target: extra
+            tag: extra
+          - target: extra
+            tag: latest
 
     steps:
       - uses: actions/checkout@v3
@@ -43,4 +49,4 @@ jobs:
           context: ./images/${{ matrix.target }}
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/${{ github.actor }}/texlive-ja-devcontainer/${{ matrix.target }}:latest
+          tags: ghcr.io/${{ github.actor }}/texlive-ja-devcontainer:${{ matrix.tag }}
