@@ -33,7 +33,8 @@ RUN tlmgr init-usertree && \
         latexmk \
         acmart \
         libertine \
-        mweights && \
+        mweights \
+        realscripts && \
     mktexlsr
 
 
