@@ -20,13 +20,13 @@ jobs:
         include:
           - target: minimal
             tags: |
-              ${{ vars.IMAGE_NAME }}:minimal
+              ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:minimal
               ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:minimal
           - target: extra
             tags: |
-              ${{ vars.IMAGE_NAME }}:extra
+              ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:extra
               ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:extra
-              ${{ vars.IMAGE_NAME }}:latest
+              ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:latest
               ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:latest
 
     steps:
@@ -50,7 +50,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
