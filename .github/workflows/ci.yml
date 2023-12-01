@@ -22,10 +22,10 @@ jobs:
             tags: |
               ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:minimal
               ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:minimal
-          - target: extra
+          - target: extended
             tags: |
-              ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:extra
-              ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:extra
+              ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:extended
+              ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:extended
               ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:latest
               ${{ vars.GHCR_PATH }}/${{ vars.IMAGE_NAME }}:latest
 
