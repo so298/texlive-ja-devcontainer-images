@@ -6,10 +6,11 @@ texlive-ja を devcontainer で使うための Docker イメージのビルド�
 
 **[Docker Hub](https://hub.docker.com/r/so298go/texlive-ja-devcontainer)**
 
-## devcontainer 用の image について
+## Image の特徴
 
 - [paperist/texlive-ja](https://hub.docker.com/r/paperist/texlive-ja)をベースにしています。
-- github actions を利用し、月に 1 回ビルドするようにしています。
+- Github Actions を利用し、月に 1 回ビルドするようにしています。
+- Arm 対応
 
 ## 利用可能なタグ
 
