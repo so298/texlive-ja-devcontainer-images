@@ -4,6 +4,8 @@
 
 texlive-ja を devcontainer で使うための Docker イメージのビルドファイルです。
 
+**[Docker Hub](https://hub.docker.com/r/so298go/texlive-ja-devcontainer)**
+
 ## devcontainer 用の image について
 
 - [paperist/texlive-ja](https://hub.docker.com/r/paperist/texlive-ja)をベースにしています。
