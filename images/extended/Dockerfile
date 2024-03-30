@@ -14,10 +14,12 @@ RUN apt-get update \
     git \
     zsh
 
-# install latexindent
+# install dependencies
 RUN apt-get install -y --no-install-recommends \
     libfile-homedir-perl \
-    libyaml-tiny-perl
+    libyaml-tiny-perl \
+    libfontconfig1
+
 RUN tlmgr update --self
 RUN tlmgr init-usertree && \
     tlmgr install \
