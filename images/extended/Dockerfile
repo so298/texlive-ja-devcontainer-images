@@ -1,3 +1,11 @@
+## Build tex-fmt
+FROM rust:1.82-slim AS tex-fmt-builder
+WORKDIR /work
+
+# install stable version of tex-fmt
+RUN cargo install tex-fmt
+
+## Build main image
 FROM paperist/texlive-ja:debian
 
 ARG USERNAME=vscode
@@ -14,7 +22,7 @@ RUN apt-get update \
     git \
     zsh
 
-# install dependencies
+# Dependencies for latexindent
 RUN apt-get install -y --no-install-recommends \
     libfile-homedir-perl \
     libyaml-tiny-perl \
@@ -41,6 +49,7 @@ RUN tlmgr init-usertree && \
         realscripts && \
     mktexlsr
 
+COPY --from=tex-fmt-builder /usr/local/cargo/bin/tex-fmt /usr/local/bin/tex-fmt
 
 # change default shell
 RUN chsh -s /bin/zsh $USERNAME
