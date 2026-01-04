@@ -20,7 +20,8 @@ RUN apt-get update \
     curl \
     wget \
     git \
-    zsh
+    zsh \
+    make
 
 # Dependencies for latexindent
 RUN apt-get install -y --no-install-recommends \
