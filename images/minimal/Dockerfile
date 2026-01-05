@@ -1,5 +1,5 @@
 ## Build tex-fmt
-FROM rust:1.82-slim AS tex-fmt-builder
+FROM rust:1.85-slim AS tex-fmt-builder
 WORKDIR /work
 
 # install stable version of tex-fmt
